@@ -1,0 +1,23 @@
+# CMake generation dependency list for this directory.
+C:/Program Files (x86)/cmake/share/cmake-3.23/Modules/CMakeCInformation.cmake
+C:/Program Files (x86)/cmake/share/cmake-3.23/Modules/CMakeCXXInformation.cmake
+C:/Program Files (x86)/cmake/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files (x86)/cmake/share/cmake-3.23/Modules/CMakeGenericSystem.cmake
+C:/Program Files (x86)/cmake/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files (x86)/cmake/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake
+C:/Program Files (x86)/cmake/share/cmake-3.23/Modules/CMakeRCInformation.cmake
+C:/Program Files (x86)/cmake/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files (x86)/cmake/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files (x86)/cmake/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Program Files (x86)/cmake/share/cmake-3.23/Modules/Compiler/MSVC-C.cmake
+C:/Program Files (x86)/cmake/share/cmake-3.23/Modules/Compiler/MSVC-CXX.cmake
+C:/Program Files (x86)/cmake/share/cmake-3.23/Modules/Platform/Windows-MSVC-C.cmake
+C:/Program Files (x86)/cmake/share/cmake-3.23/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Program Files (x86)/cmake/share/cmake-3.23/Modules/Platform/Windows-MSVC.cmake
+C:/Program Files (x86)/cmake/share/cmake-3.23/Modules/Platform/Windows.cmake
+C:/Program Files (x86)/cmake/share/cmake-3.23/Modules/Platform/WindowsPaths.cmake
+E:/Code/VS/C++/Assignment/2023/CGAssignment4/CMakeLists.txt
+E:/Code/VS/C++/Assignment/2023/CGAssignment4/build/CMakeFiles/3.23.2/CMakeCCompiler.cmake
+E:/Code/VS/C++/Assignment/2023/CGAssignment4/build/CMakeFiles/3.23.2/CMakeCXXCompiler.cmake
+E:/Code/VS/C++/Assignment/2023/CGAssignment4/build/CMakeFiles/3.23.2/CMakeRCCompiler.cmake
+E:/Code/VS/C++/Assignment/2023/CGAssignment4/build/CMakeFiles/3.23.2/CMakeSystem.cmake

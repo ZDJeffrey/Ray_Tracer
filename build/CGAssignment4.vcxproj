@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4B559FFA-8F6F-32EA-BD87-CB75354E3304}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>Win32</Platform>
+    <ProjectName>CGAssignment4</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CGAssignment4.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CGAssignment4</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CGAssignment4.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CGAssignment4</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">CGAssignment4.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">CGAssignment4</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">CGAssignment4.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">CGAssignment4</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Code\VS\C++\Assignment\2023\CGAssignment4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Code\VS\C++\Assignment\2023\CGAssignment4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Code\VS\C++\Assignment\2023\CGAssignment4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>E:/Code/VS/C++/Assignment/2023/CGAssignment4/libs;E:/Code/VS/C++/Assignment/2023/CGAssignment4/libs/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/Code/VS/C++/Assignment/2023/CGAssignment4/build/Debug/CGAssignment4.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/Code/VS/C++/Assignment/2023/CGAssignment4/build/Debug/CGAssignment4.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Code\VS\C++\Assignment\2023\CGAssignment4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Code\VS\C++\Assignment\2023\CGAssignment4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Code\VS\C++\Assignment\2023\CGAssignment4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>E:/Code/VS/C++/Assignment/2023/CGAssignment4/libs;E:/Code/VS/C++/Assignment/2023/CGAssignment4/libs/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/Code/VS/C++/Assignment/2023/CGAssignment4/build/Release/CGAssignment4.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/Code/VS/C++/Assignment/2023/CGAssignment4/build/Release/CGAssignment4.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Code\VS\C++\Assignment\2023\CGAssignment4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Code\VS\C++\Assignment\2023\CGAssignment4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Code\VS\C++\Assignment\2023\CGAssignment4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>E:/Code/VS/C++/Assignment/2023/CGAssignment4/libs;E:/Code/VS/C++/Assignment/2023/CGAssignment4/libs/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/Code/VS/C++/Assignment/2023/CGAssignment4/build/MinSizeRel/CGAssignment4.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/Code/VS/C++/Assignment/2023/CGAssignment4/build/MinSizeRel/CGAssignment4.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Code\VS\C++\Assignment\2023\CGAssignment4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Code\VS\C++\Assignment\2023\CGAssignment4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Code\VS\C++\Assignment\2023\CGAssignment4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>E:/Code/VS/C++/Assignment/2023/CGAssignment4/libs;E:/Code/VS/C++/Assignment/2023/CGAssignment4/libs/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/Code/VS/C++/Assignment/2023/CGAssignment4/build/RelWithDebInfo/CGAssignment4.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/Code/VS/C++/Assignment/2023/CGAssignment4/build/RelWithDebInfo/CGAssignment4.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule E:/Code/VS/C++/Assignment/2023/CGAssignment4/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\cmake\bin\cmake.exe" -SE:/Code/VS/C++/Assignment/2023/CGAssignment4 -BE:/Code/VS/C++/Assignment/2023/CGAssignment4/build --check-stamp-file E:/Code/VS/C++/Assignment/2023/CGAssignment4/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\3.23.2\CMakeCCompiler.cmake;E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\3.23.2\CMakeCXXCompiler.cmake;E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\3.23.2\CMakeRCCompiler.cmake;E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\3.23.2\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule E:/Code/VS/C++/Assignment/2023/CGAssignment4/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\cmake\bin\cmake.exe" -SE:/Code/VS/C++/Assignment/2023/CGAssignment4 -BE:/Code/VS/C++/Assignment/2023/CGAssignment4/build --check-stamp-file E:/Code/VS/C++/Assignment/2023/CGAssignment4/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\3.23.2\CMakeCCompiler.cmake;E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\3.23.2\CMakeCXXCompiler.cmake;E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\3.23.2\CMakeRCCompiler.cmake;E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\3.23.2\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule E:/Code/VS/C++/Assignment/2023/CGAssignment4/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files (x86)\cmake\bin\cmake.exe" -SE:/Code/VS/C++/Assignment/2023/CGAssignment4 -BE:/Code/VS/C++/Assignment/2023/CGAssignment4/build --check-stamp-file E:/Code/VS/C++/Assignment/2023/CGAssignment4/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\3.23.2\CMakeCCompiler.cmake;E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\3.23.2\CMakeCXXCompiler.cmake;E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\3.23.2\CMakeRCCompiler.cmake;E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\3.23.2\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule E:/Code/VS/C++/Assignment/2023/CGAssignment4/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files (x86)\cmake\bin\cmake.exe" -SE:/Code/VS/C++/Assignment/2023/CGAssignment4 -BE:/Code/VS/C++/Assignment/2023/CGAssignment4/build --check-stamp-file E:/Code/VS/C++/Assignment/2023/CGAssignment4/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Program Files (x86)\cmake\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\3.23.2\CMakeCCompiler.cmake;E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\3.23.2\CMakeCXXCompiler.cmake;E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\3.23.2\CMakeRCCompiler.cmake;E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\3.23.2\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\WindowsApp.cpp" />
+    <ClCompile Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\main.cpp" />
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\WindowsApp.h" />
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\aabb.h" />
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\aarect.h" />
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\box.h" />
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\bvh.h" />
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\camera.h" />
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\constant_medium.h" />
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\hittable.h" />
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\hittable_list.h" />
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\material.h" />
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\moving_sphere.h" />
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\perlin.h" />
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\ray.h" />
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\rtweekend.h" />
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\sphere.h" />
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\stb_image.h" />
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\texture.h" />
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\vec3.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\build\ZERO_CHECK.vcxproj">
+      <Project>{B42B1512-10EC-35FD-83D3-FC60EF72AF9F}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
