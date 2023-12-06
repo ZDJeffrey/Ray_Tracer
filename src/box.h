@@ -5,9 +5,9 @@
 #include "vec3.h"
 #include "ray.h"
 #include "aarect.h"
-#include "hittable_list.h"
+#include "hitable_list.h"
 
-class box : public hittable
+class box : public hitable
 {
 public:
 	box() {}
@@ -36,7 +36,7 @@ public:
 
 public:
 	point3 box_min, box_max;
-	hittable_list sides;
+	hitable_list sides;
 };
 
 #endif

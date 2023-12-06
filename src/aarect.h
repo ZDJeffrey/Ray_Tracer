@@ -2,9 +2,9 @@
 #define AARECT_H
 
 #include "rtweekend.h"
-#include "hittable.h"
+#include "hitable.h"
 
-class xy_rect : public hittable
+class xy_rect : public hitable
 {
 public:
 	xy_rect() = default;
@@ -44,7 +44,7 @@ public:
 	double x0, x1, y0, y1, k;
 };
 
-class xz_rect : public hittable 
+class xz_rect : public hitable
 {
 public:
 	xz_rect() {}
@@ -72,12 +72,32 @@ public:
 		return true;
 	}
 
-	virtual bool bounding_box(double time0, double time1, aabb& output_box) const override 
+	virtual bool bounding_box(double time0, double time1, aabb& output_box) const override
 	{
 		// The bounding box must have non-zero width in each dimension, so pad the Y
 		// dimension a small amount.
 		output_box = aabb(point3(x0, k - 0.0001, z0), point3(x1, k + 0.0001, z1));
 		return true;
+	}
+
+	virtual double pdf_value(const vec3& o, const vec3& v) const override
+	{
+		hit_record rec;
+		if (this->hit(ray(o, v), 0.001, infinity, rec))
+		{
+			double area = fabs((x1 - x0) * (z1 - z0));
+			double distance_squared = rec.t * rec.t * v.length_squared();
+			double cosine = fabs(dot(v, rec.normal) / v.length());
+			return distance_squared / (cosine * area);
+		}
+		else
+			return 0;
+	}
+
+	virtual vec3 random(const vec3& o) const override
+	{
+		vec3 random_point = vec3(x0 + random_double() * (x1 - x0), k, z0 + random_double() * (z1 - z0));
+		return random_point - o;
 	}
 
 public:
@@ -86,7 +106,7 @@ public:
 };
 
 
-class yz_rect : public hittable 
+class yz_rect : public hitable
 {
 public:
 	yz_rect() = default;
@@ -114,7 +134,7 @@ public:
 		return true;
 	}
 
-	virtual bool bounding_box(double time0, double time1, aabb& output_box) const override 
+	virtual bool bounding_box(double time0, double time1, aabb& output_box) const override
 	{
 		// The bounding box must have non-zero width in each dimension, so pad the X
 		// dimension a small amount.

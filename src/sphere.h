@@ -1,10 +1,11 @@
 #ifndef SPHERE_H
 #define SPHERE_H
 
-#include "hittable.h"
+#include "hitable.h"
 #include "vec3.h"
+#include "onb.h"
 
-class sphere : public hittable
+class sphere : public hitable
 {
 public:
 	sphere() = default;
@@ -43,6 +44,27 @@ public:
 			center - vec3(radius, radius, radius),
 			center + vec3(radius, radius, radius));
 		return true;
+	}
+
+	virtual double pdf_value(const vec3& o, const vec3& v) const override
+	{
+		hit_record rec;
+		if (this->hit(ray(o, v), 0.001, infinity, rec))
+		{
+			double cos_theta_max = sqrt(1 - radius * radius / (center - o).length_squared());
+			double solid_angle = 2 * pi * (1 - cos_theta_max);
+			return 1 / solid_angle;
+		}
+		else
+			return 0;
+	}
+
+	virtual vec3 random(const vec3& o) const override
+	{
+		vec3 direction = center - o;
+		double distance_squared = direction.length_squared();
+		onb uvw(direction);
+		return uvw.local(random_to_sphere(radius, distance_squared));
 	}
 
 private:

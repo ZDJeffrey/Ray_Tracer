@@ -30,16 +30,22 @@
     <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\constant_medium.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\hittable.h">
+    <ClInclude Include="..\src\hitable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\hittable_list.h">
+    <ClInclude Include="..\src\hitable_list.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\material.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\moving_sphere.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\onb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\pdf.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="E:\Code\VS\C++\Assignment\2023\CGAssignment4\src\perlin.h">

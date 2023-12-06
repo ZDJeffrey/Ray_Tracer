@@ -2,11 +2,11 @@
 #define BVH_H
 
 #include "rtweekend.h"
-#include "hittable.h"
-#include "hittable_list.h"
+#include "hitable.h"
+#include "hitable_list.h"
 #include <algorithm>
 
-inline bool box_compare(const shared_ptr<hittable> a, const shared_ptr<hittable> b, int axis)
+inline bool box_compare(const shared_ptr<hitable> a, const shared_ptr<hitable> b, int axis)
 {
 	aabb box_a, box_b;
 	if (!a->bounding_box(0, 0, box_a) || !b->bounding_box(0, 0, box_b))
@@ -14,29 +14,29 @@ inline bool box_compare(const shared_ptr<hittable> a, const shared_ptr<hittable>
 	return box_a.min().e[axis] < box_b.min().e[axis];
 }
 
-bool box_x_compare(const shared_ptr<hittable> a, const shared_ptr<hittable> b)
+bool box_x_compare(const shared_ptr<hitable> a, const shared_ptr<hitable> b)
 {
 	return box_compare(a, b, 0);
 }
 
-bool box_y_compare(const shared_ptr<hittable> a, const shared_ptr<hittable> b)
+bool box_y_compare(const shared_ptr<hitable> a, const shared_ptr<hitable> b)
 {
 	return box_compare(a, b, 1);
 }
 
-bool box_z_compare(const shared_ptr<hittable> a, const shared_ptr<hittable> b)
+bool box_z_compare(const shared_ptr<hitable> a, const shared_ptr<hitable> b)
 {
 	return box_compare(a, b, 2);
 }
 
-class bvh_node : public hittable
+class bvh_node : public hitable
 {
 public:
 	bvh_node() = delete;
-	bvh_node(const hittable_list& list, double time0, double time1)
+	bvh_node(const hitable_list& list, double time0, double time1)
 		: bvh_node(list.objects, 0, list.objects.size(), time0, time1) {}
 
-	bvh_node(const std::vector<shared_ptr<hittable>>& src_objects, size_t start, size_t end, double time0, double time1)
+	bvh_node(const std::vector<shared_ptr<hitable>>& src_objects, size_t start, size_t end, double time0, double time1)
 	{
 		auto objects = src_objects; // Create a modifiable array of the source scene objects
 		int axis = random_int(0, 2);
@@ -86,8 +86,8 @@ public:
 
 
 public:
-	shared_ptr<hittable> left;
-	shared_ptr<hittable> right;
+	shared_ptr<hitable> left;
+	shared_ptr<hitable> right;
 	aabb box;
 };
 

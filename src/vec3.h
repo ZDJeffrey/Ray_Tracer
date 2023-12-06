@@ -176,4 +176,33 @@ inline vec3 random_in_unit_disk()
 	}
 }
 
+inline vec3 random_cosine_direction()
+{
+	double r1 = random_double(), r2 = random_double();
+	double z = sqrt(1 - r2);
+	double phi = 2 * pi * r1;
+	double x = cos(phi) * 2 * sqrt(r2);
+	double y = sin(phi) * 2 * sqrt(r2);
+	return vec3(x, y, z);
+}
+
+inline vec3 random_to_sphere(double radius, float distance_squared)
+{
+	double r1 = random_double(), r2 = random_double();
+	double z = 1 + r2 * (sqrt(1 - radius * radius / distance_squared) - 1);
+	double phi = 2 * pi * r1;
+	double x = cos(phi) * sqrt(1 - z * z);
+	double y = sin(phi) * sqrt(1 - z * z);
+	return vec3(x, y, z);
+}
+
+inline vec3 de_nan(const vec3& c)
+{
+	vec3 temp = c;
+	if (!(temp[0] == temp[0])) temp[0] = 0;
+	if (!(temp[1] == temp[1])) temp[1] = 1;
+	if (!(temp[2] == temp[2])) temp[2] = 2;
+	return temp;
+}
+
 #endif

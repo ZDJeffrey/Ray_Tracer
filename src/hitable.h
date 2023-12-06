@@ -1,5 +1,5 @@
-#ifndef HITTABLE_H
-#define HITTABLE_H
+#ifndef HITABLE_H
+#define HITABLE_H
 
 #include "rtweekend.h"
 #include "ray.h"
@@ -22,17 +22,19 @@ struct hit_record
 	}
 };
 
-class hittable
+class hitable
 {
 public:
 	virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) const = 0;
 	virtual bool bounding_box(double time0, double time1, aabb& output_box) const = 0;
+	virtual double pdf_value(const vec3& o, const vec3& v) const { return 0.0; }
+	virtual vec3 random(const vec3& o) const { return vec3(1, 0, 0); }
 };
 
-class translate : public hittable
+class translate : public hitable
 {
 public:
-	translate(shared_ptr<hittable> p, const vec3& displacement)
+	translate(shared_ptr<hitable> p, const vec3& displacement)
 		: ptr(p), offset(displacement) {}
 
 	virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) const override
@@ -55,14 +57,14 @@ public:
 
 
 public:
-	shared_ptr<hittable> ptr;
+	shared_ptr<hitable> ptr;
 	vec3 offset;
 };
 
-class rotate_y : public hittable 
+class rotate_y : public hitable 
 {
 public:
-	rotate_y::rotate_y(shared_ptr<hittable> p, double angle) : ptr(p) 
+	rotate_y::rotate_y(shared_ptr<hitable> p, double angle) : ptr(p) 
 	{
 		auto radians = degrees_to_radians(angle);
 		sin_theta = sin(radians);
@@ -120,7 +122,7 @@ public:
 	}
 
 public:
-	shared_ptr<hittable> ptr;
+	shared_ptr<hitable> ptr;
 	double sin_theta;
 	double cos_theta;
 	bool hasbox;
@@ -128,4 +130,4 @@ public:
 };
 
 
-#endif // !HITTABLE_H
+#endif // !HITABLE_H

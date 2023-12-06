@@ -1,18 +1,18 @@
-#ifndef HITTABLE_LIST_H
-#define HITTABLE_LIST_H
+#ifndef HITABLE_LIST_H
+#define HITABLE_LIST_H
 
-#include "hittable.h"
+#include "hitable.h"
 #include "ray.h"
 #include <vector>
 
-class hittable_list : public hittable
+class hitable_list : public hitable
 {
 public:
-	hittable_list() = default;
-	hittable_list(shared_ptr<hittable> object) { add(object); }
+	hitable_list() = default;
+	hitable_list(shared_ptr<hitable> object) { add(object); }
 
 	void clear() { objects.clear(); }
-	void add(shared_ptr<hittable> object) { objects.push_back(object); }
+	void add(shared_ptr<hitable> object) { objects.push_back(object); }
 
 	virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) const override
 	{
@@ -47,10 +47,25 @@ public:
 		return true;
 	}
 
+	virtual double pdf_value(const vec3& o, const vec3& v) const override
+	{
+		double weight = 1.0 / objects.size();
+		double sum = 0;
+		for (auto& object : objects)
+			sum += weight * object->pdf_value(o, v);
+		return sum;
+	}
+
+	virtual vec3 random(const vec3& o) const override
+	{
+		int index = random_double(0, objects.size() - 0.001);
+		return objects[index]->random(o);
+	}
+
 public:
-	std::vector<shared_ptr<hittable>> objects;
+	std::vector<shared_ptr<hitable>> objects;
 };
 
 
 
-#endif // !HITTABLE_LIST_H
+#endif // !HITABLE_LIST_H

@@ -4,9 +4,9 @@
 #include "rtweekend.h"
 #include "vec3.h"
 #include "ray.h"
-#include "hittable.h"
+#include "hitable.h"
 
-class moving_sphere : public hittable
+class moving_sphere : public hitable
 {
 public:
 	moving_sphere() = default;
