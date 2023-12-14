@@ -23,7 +23,8 @@ public:
 
 		// 找出[t_min,t_max]中的最小值
 		auto root = (-half_b - sqrt_d) / a;
-		if (root < t_min || t_max < root) {
+		if (root < t_min || t_max < root)
+		{
 			root = (-half_b + sqrt_d) / a;
 			if (root < t_min || t_max < root)
 				return false;
@@ -64,7 +65,7 @@ public:
 		vec3 direction = center - o;
 		double distance_squared = direction.length_squared();
 		onb uvw(direction);
-		return uvw.local(random_to_sphere(radius, distance_squared));
+		return direction + uvw.local(random_to_sphere(radius, distance_squared));
 	}
 
 private:

@@ -186,7 +186,7 @@ inline vec3 random_cosine_direction()
 	return vec3(x, y, z);
 }
 
-inline vec3 random_to_sphere(double radius, float distance_squared)
+inline vec3 random_to_sphere(double radius, double distance_squared)
 {
 	double r1 = random_double(), r2 = random_double();
 	double z = 1 + r2 * (sqrt(1 - radius * radius / distance_squared) - 1);
@@ -199,9 +199,9 @@ inline vec3 random_to_sphere(double radius, float distance_squared)
 inline vec3 de_nan(const vec3& c)
 {
 	vec3 temp = c;
-	if (!(temp[0] == temp[0])) temp[0] = 0;
-	if (!(temp[1] == temp[1])) temp[1] = 1;
-	if (!(temp[2] == temp[2])) temp[2] = 2;
+	if (isnan(temp[0])) temp[0] = 0;
+	if (isnan(temp[1])) temp[1] = 0;
+	if (isnan(temp[2])) temp[2] = 0;
 	return temp;
 }
 

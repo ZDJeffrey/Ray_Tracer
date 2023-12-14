@@ -135,6 +135,32 @@ public:
 	shared_ptr<texture> emit;
 };
 
+class spot_light : public material
+{
+public:
+	spot_light(shared_ptr<texture> a, vec3 _direction, double phi) : emit(a)
+	{
+		direction = unit_vector(_direction);
+		cos_phi = cos(degrees_to_radians(phi));
+	}
+	spot_light(color c, vec3 _direction, double phi) : emit(make_shared<solid_color>(c)), direction(_direction)
+	{
+		direction = unit_vector(_direction);
+		cos_phi = cos(degrees_to_radians(phi));
+	}
+
+	virtual color emitted(const ray& r_in, const hit_record& rec, double u, double v, const point3& p) const override
+	{
+		vec3 light_direction = -unit_vector(r_in.direction());
+		double cos_theta = dot(direction, light_direction);
+		return cos_theta >= cos_phi ? emit->value(u, v, p) : color(0, 0, 0);
+	}
+public:
+	shared_ptr<texture> emit;
+	vec3 direction;
+	double cos_phi;
+};
+
 class isotropic : public material
 {
 public:

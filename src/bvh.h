@@ -78,12 +78,12 @@ public:
 		bool hit_right = right->hit(r, t_min, hit_left ? rec.t : t_max, rec);
 		return hit_left || hit_right;
 	}
+
 	virtual bool bounding_box(double time0, double time1, aabb& output_box) const override
 	{
 		output_box = box;
 		return true;
 	}
-
 
 public:
 	shared_ptr<hitable> left;

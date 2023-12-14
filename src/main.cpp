@@ -83,11 +83,10 @@ int main(int argc, char* args[])
 	return 0;
 }
 
-hitable_list random_scene()
+void random_scene(hitable_list& objects, shared_ptr<hitable_list> hlist)
 {
-	hitable_list world;
 	auto checker = make_shared<checker_texture>(color(0.2, 0.3, 0.1), color(0.9, 0.9, 0.9));
-	world.add(make_shared<sphere>(point3(0, -1000, 0), 1000, make_shared<lambertian>(checker)));
+	objects.add(make_shared<sphere>(point3(0, -1000, 0), 1000, make_shared<lambertian>(checker)));
 	for (int a = -11; a < 11; a++) {
 		for (int b = -11; b < 11; b++)
 		{
@@ -103,7 +102,7 @@ hitable_list random_scene()
 					auto albedo = color::random() * color::random();
 					sphere_material = make_shared<lambertian>(albedo);
 					auto center2 = center + vec3(0, random_double(0, .5), 0);
-					world.add(make_shared<moving_sphere>(center, center2, 0.0, 1.0, 0.2, sphere_material));
+					objects.add(make_shared<moving_sphere>(center, center2, 0.0, 1.0, 0.2, sphere_material));
 				}
 				else if (choose_mat < 0.95)
 				{
@@ -111,74 +110,70 @@ hitable_list random_scene()
 					auto albedo = color::random(0.5, 1);
 					auto fuzz = random_double(0, 0.5);
 					sphere_material = make_shared<metal>(albedo, fuzz);
-					world.add(make_shared<sphere>(center, 0.2, sphere_material));
+					objects.add(make_shared<sphere>(center, 0.2, sphere_material));
 				}
 				else
 				{
 					// glass
 					sphere_material = make_shared<dielectric>(1.5);
-					world.add(make_shared<sphere>(center, 0.2, sphere_material));
+					objects.add(make_shared<sphere>(center, 0.2, sphere_material));
 				}
 			}
 		}
 	}
 	auto material1 = make_shared<dielectric>(1.5);
-	world.add(make_shared<sphere>(point3(0, 1, 0), 1.0, material1));
+	auto glass_sphere = make_shared<sphere>(point3(0, 1, 0), 1.0, material1);
+	objects.add(glass_sphere);
+	hlist->add(glass_sphere);
 	auto material2 = make_shared<lambertian>(color(0.4, 0.2, 0.1));
-	world.add(make_shared<sphere>(point3(-4, 1, 0), 1.0, material2));
+	objects.add(make_shared<sphere>(point3(-4, 1, 0), 1.0, material2));
 	auto material3 = make_shared<metal>(color(0.7, 0.6, 0.5), 0.0);
-	world.add(make_shared<sphere>(point3(4, 1, 0), 1.0, material3));
-	return world;
+	objects.add(make_shared<sphere>(point3(4, 1, 0), 1.0, material3));
 }
 
-hitable_list two_spheres()
+void two_spheres(hitable_list& objects, shared_ptr<hitable_list> hlist)
 {
-	hitable_list objects;
 	auto checker = make_shared<checker_texture>(color(0.2, 0.3, 0.1), color(0.9, 0.9, 0.9));
 	objects.add(make_shared<sphere>(point3(0, -10, 0), 10, make_shared<lambertian>(checker)));
 	objects.add(make_shared<sphere>(point3(0, 10, 0), 10, make_shared<lambertian>(checker)));
-	return objects;
 }
 
-hitable_list two_perlin_spheres()
+void two_perlin_spheres(hitable_list& objects, shared_ptr<hitable_list> hlist)
 {
-	hitable_list objects;
 	auto pertext = make_shared<noise_texture>(4);
 	objects.add(make_shared<sphere>(point3(0, -1000, 0), 1000, make_shared<lambertian>(pertext)));
 	objects.add(make_shared<sphere>(point3(0, 2, 0), 2, make_shared<lambertian>(pertext)));
-	return objects;
 }
 
-hitable_list earth()
+void earth(hitable_list& objects, shared_ptr<hitable_list> hlist)
 {
 	auto earth_texture = make_shared<image_texture>("earthmap.jpg");
 	auto earth_surface = make_shared<lambertian>(earth_texture);
 	auto globe = make_shared<sphere>(point3(0, 0, 0), 2, earth_surface);
-	return hitable_list(globe);
+	objects.add(globe);
 }
 
-hitable_list simple_light()
+void simple_light(hitable_list& objects, shared_ptr<hitable_list> hlist)
 {
-	hitable_list objects;
 	auto pertext = make_shared<noise_texture>(4);
 	objects.add(make_shared<sphere>(point3(0, -1000, 0), 1000, make_shared<lambertian>(pertext)));
 	objects.add(make_shared<sphere>(point3(0, 2, 0), 2, make_shared<lambertian>(pertext)));
 	auto difflight = make_shared<diffuse_light>(color(4, 4, 4));
 	objects.add(make_shared<xy_rect>(3, 5, 1, 3, -2, difflight));
 	objects.add(make_shared<sphere>(point3(0, 7, 0), 2, difflight));
-	return objects;
 }
 
-hitable_list cornell_box()
+void cornell_box(hitable_list& objects, shared_ptr<hitable_list> hlist)
 {
-	hitable_list objects;
 	auto red = make_shared<lambertian>(color(.65, .05, .05));
 	auto white = make_shared<lambertian>(color(.73, .73, .73));
 	auto green = make_shared<lambertian>(color(.12, .45, .15));
 	auto light = make_shared<diffuse_light>(color(15, 15, 15));
 	objects.add(make_shared<yz_rect>(0, 555, 0, 555, 555, green));
 	objects.add(make_shared<yz_rect>(0, 555, 0, 555, 0, red));
-	objects.add(make_shared<xz_rect>(213, 343, 227, 332, 554, light));
+	auto light_src = make_shared<xz_rect>(213, 343, 227, 332, 554, light);
+	objects.add(light_src);
+	hlist->add(light_src);
 	objects.add(make_shared<xz_rect>(0, 555, 0, 555, 0, white));
 	objects.add(make_shared<xz_rect>(0, 555, 0, 555, 555, white));
 	objects.add(make_shared<xy_rect>(0, 555, 0, 555, 555, white));
@@ -189,20 +184,22 @@ hitable_list cornell_box()
 	shared_ptr<hitable> box2 = make_shared<box>(point3(0, 0, 0), point3(165, 165, 165), white);
 	box2 = make_shared<rotate_y>(box2, -18);
 	box2 = make_shared<translate>(box2, vec3(130, 0, 65));
-	objects.add(make_shared<sphere>(vec3(190, 90, 190), 90, make_shared<dielectric>(1.5)));
-	return objects;
+	objects.add(box2);
+	auto glass_sphere = make_shared<sphere>(point3(190, 255, 190), 90, make_shared<dielectric>(1.5));
+	objects.add(glass_sphere);
+	hlist->add(glass_sphere);
 }
 
-hitable_list cornell_smoke()
+void cornell_smoke(hitable_list& objects, shared_ptr<hitable_list> hlist)
 {
-	hitable_list objects;
 	auto red = make_shared<lambertian>(color(.65, .05, .05));
 	auto white = make_shared<lambertian>(color(.73, .73, .73));
 	auto green = make_shared<lambertian>(color(.12, .45, .15));
 	auto light = make_shared<diffuse_light>(color(7, 7, 7));
 	objects.add(make_shared<yz_rect>(0, 555, 0, 555, 555, green));
 	objects.add(make_shared<yz_rect>(0, 555, 0, 555, 0, red));
-	objects.add(make_shared<xz_rect>(113, 443, 127, 432, 554, light));
+	auto light_src = make_shared<xz_rect>(113, 443, 127, 432, 554, light);
+	objects.add(light_src);
 	objects.add(make_shared<xz_rect>(0, 555, 0, 555, 555, white));
 	objects.add(make_shared<xz_rect>(0, 555, 0, 555, 0, white));
 	objects.add(make_shared<xy_rect>(0, 555, 0, 555, 555, white));
@@ -214,10 +211,9 @@ hitable_list cornell_smoke()
 	box2 = make_shared<translate>(box2, vec3(130, 0, 65));
 	objects.add(make_shared<constant_medium>(box1, 0.01, color(0, 0, 0)));
 	objects.add(make_shared<constant_medium>(box2, 0.01, color(1, 1, 1)));
-	return objects;
 }
 
-hitable_list final_scene()
+void final_scene(hitable_list& objects, shared_ptr<hitable_list> hlist)
 {
 	hitable_list boxes1;
 	auto ground = make_shared<lambertian>(color(0.48, 0.83, 0.53));
@@ -234,18 +230,22 @@ hitable_list final_scene()
 			auto z1 = z0 + w;
 			boxes1.add(make_shared<box>(point3(x0, y0, z0), point3(x1, y1, z1), ground));
 		}
-	hitable_list objects;
 	objects.add(make_shared<bvh_node>(boxes1, 0, 1));
 	auto light = make_shared<diffuse_light>(color(7, 7, 7));
-	objects.add(make_shared<xz_rect>(123, 423, 147, 412, 554, light));
+	auto light_src = make_shared<xz_rect>(123, 423, 147, 412, 554, light);
+	objects.add(light_src);
+	hlist->add(light_src);
 	auto center1 = point3(400, 400, 200);
 	auto center2 = center1 + vec3(30, 0, 0);
 	auto moving_sphere_material = make_shared<lambertian>(color(0.7, 0.3, 0.1));
 	objects.add(make_shared<moving_sphere>(center1, center2, 0, 1, 50, moving_sphere_material));
-	objects.add(make_shared<sphere>(point3(260, 150, 45), 50, make_shared<dielectric>(1.5)));
+	auto glass_sphere = make_shared<sphere>(point3(260, 150, 45), 50, make_shared<dielectric>(1.5));
+	objects.add(glass_sphere);
+	hlist->add(glass_sphere);
 	objects.add(make_shared<sphere>(point3(0, 150, 145), 50, make_shared<metal>(color(0.8, 0.8, 0.9), 1.0)));
 	auto boundary = make_shared<sphere>(point3(360, 150, 145), 70, make_shared<dielectric>(1.5));
 	objects.add(boundary);
+	hlist->add(boundary);
 	objects.add(make_shared<constant_medium>(boundary, 0.2, color(0.2, 0.4, 0.9)));
 	boundary = make_shared<sphere>(point3(0, 0, 0), 5000, make_shared<dielectric>(1.5));
 	objects.add(make_shared<constant_medium>(boundary, .0001, color(1, 1, 1)));
@@ -259,7 +259,79 @@ hitable_list final_scene()
 	for (int j = 0; j < ns; j++)
 		boxes2.add(make_shared<sphere>(point3::random(0, 165), 10, white));
 	objects.add(make_shared<translate>(make_shared<rotate_y>(make_shared<bvh_node>(boxes2, 0.0, 1.0), 15), vec3(-100, 270, 395)));
-	return objects;
+}
+
+void cornell_box_spot(hitable_list& objects, shared_ptr<hitable_list> hlist)
+{
+	auto red = make_shared<lambertian>(color(.65, .05, .05));
+	auto white = make_shared<lambertian>(color(.73, .73, .73));
+	auto green = make_shared<lambertian>(color(.12, .45, .15));
+	auto spot = make_shared<spot_light>(color(20, 20, 20), vec3(0.0, -1.0, 0.0), 22.5);
+	objects.add(make_shared<yz_rect>(0, 555, 0, 555, 555, green));
+	objects.add(make_shared<yz_rect>(0, 555, 0, 555, 0, red));
+	auto light_src = make_shared<xz_rect>(213, 343, 227, 332, 554.99, spot);
+	objects.add(light_src);
+	hlist->add(light_src);
+	objects.add(make_shared<xz_rect>(0, 555, 0, 555, 0, white));
+	objects.add(make_shared<xz_rect>(0, 555, 0, 555, 555, white));
+	objects.add(make_shared<xy_rect>(0, 555, 0, 555, 555, white));
+	shared_ptr<hitable> box1 = make_shared<box>(point3(0, 0, 0), point3(165, 330, 165), white);
+	box1 = make_shared<rotate_y>(box1, 15);
+	box1 = make_shared<translate>(box1, vec3(265, 0, 295));
+	objects.add(box1);
+	shared_ptr<hitable> box2 = make_shared<box>(point3(0, 0, 0), point3(165, 165, 165), white);
+	box2 = make_shared<rotate_y>(box2, -18);
+	box2 = make_shared<translate>(box2, vec3(130, 0, 65));
+	objects.add(box2);
+	auto glass_sphere = make_shared<sphere>(point3(190, 255, 190), 90, make_shared<dielectric>(1.5));
+	objects.add(glass_sphere);
+	hlist->add(glass_sphere);
+}
+
+void cornell_box_light(hitable_list& objects, shared_ptr<hitable_list> hlist)
+{
+	auto red = make_shared<lambertian>(color(.65, .05, .05));
+	auto white = make_shared<lambertian>(color(.73, .73, .73));
+	auto green = make_shared<lambertian>(color(.12, .45, .15));
+	auto light = make_shared<diffuse_light>(color(3, 1.4, 0.4));
+	auto aluminum = make_shared<metal>(color(0.8, 0.85, 0.88), 0.0);
+	objects.add(make_shared<yz_rect>(0, 555, 0, 555, 555, green));
+	objects.add(make_shared<yz_rect>(0, 555, 0, 555, 0, red));
+	objects.add(make_shared<xz_rect>(0, 555, 0, 555, 0, white));
+	objects.add(make_shared<xz_rect>(0, 555, 0, 555, 555, white));
+	objects.add(make_shared<xy_rect>(0, 555, 0, 555, 555, white));
+	shared_ptr<hitable> box1 = make_shared<box>(point3(0, 0, 0), point3(165, 330, 165), aluminum);
+	box1 = make_shared<rotate_y>(box1, 15);
+	box1 = make_shared<translate>(box1, vec3(265, 0, 295));
+	objects.add(box1);
+	shared_ptr<hitable> box2 = make_shared<box>(point3(0, 0, 0), point3(165, 165, 165), white);
+	box2 = make_shared<rotate_y>(box2, -18);
+	box2 = make_shared<translate>(box2, vec3(130, 0, 65));
+	objects.add(box2);
+	auto light_sphere = make_shared<sphere>(point3(190, 195, 190), 30, light);
+	objects.add(light_sphere);
+	hlist->add(light_sphere);
+}
+
+void universe(hitable_list& objects, shared_ptr<hitable_list> hlist)
+{
+	auto stars = make_shared<sphere>(point3(0, 0, 0), 1000, make_shared<diffuse_light>(make_shared<image_texture>("stars.jpg")));
+	objects.add(stars);
+	auto sun = make_shared<sphere>(point3(-50, 0, 0), 100, make_shared<diffuse_light>(make_shared<image_texture>("sun.jpg")));
+	objects.add(sun);
+	hlist->add(sun);
+	auto mercury = make_shared<sphere>(75 * unit_vector(point3(1, 0, 1)), 2, make_shared<lambertian>(make_shared<image_texture>("mercury.jpg")));
+	objects.add(mercury);
+	auto venus = make_shared<sphere>(91 * unit_vector(point3(1, 0, -0.6)), 6, make_shared<lambertian>(make_shared<image_texture>("venus.jpg")));
+	objects.add(venus);
+	auto earth = make_shared<sphere>((point3(0, 0, 0)), 7, make_shared<lambertian>(make_shared<image_texture>("earth.jpg")));
+	objects.add(make_shared<translate>(make_shared<rotate_y>(earth, 180), 115 * unit_vector(point3(1, 0, 1))));
+	auto mars = make_shared<sphere>(133 * unit_vector(point3(1, 0, -0.1)), 3, make_shared<lambertian>(make_shared<image_texture>("mars.jpg")));
+	objects.add(mars);
+	auto jupiter = make_shared<sphere>(279 * unit_vector(point3(1, 0, -2)), 30, make_shared<lambertian>(make_shared<image_texture>("jupiter.jpg")));
+	objects.add(jupiter);
+	for (int i = 0; i < 5000; i++)
+		objects.add(make_shared<sphere>(vec3(0,random_double(-2.0,2.0), 0) + (150 + random_double() * 50) * unit_vector(point3(1, 0, random_double(-5.5, 1))), random_double(0.1, 0.5), make_shared<lambertian>(color(0.5, 0.5, 0.5))));
 }
 
 void write_color(int x, int y, color pixel_color, int samples_per_pixel)
@@ -300,7 +372,7 @@ double hit_sphere(const point3& center, double radius, const ray& r)
 		return (-half_b - sqrt(discriminant)) / a;
 }
 
-color ray_color(const ray& r, const color& background, const hitable& world, shared_ptr<hitable> light_shape, int depth)
+color ray_color(const ray& r, const color& background, const hitable& world, shared_ptr<hitable_list> hlist, int depth)
 {
 	if (depth <= 0) // 有限递归
 		return color(0, 0, 0);
@@ -314,17 +386,28 @@ color ray_color(const ray& r, const color& background, const hitable& world, sha
 	if (hrec.mat_ptr->scatter(r, hrec, srec))
 	{
 		if (srec.is_specular)
-			return srec.attenuation * ray_color(srec.specular_ray, background, world, light_shape, depth - 1);
-		mixture_pdf p(make_shared<hitable_pdf>(light_shape, hrec.p), srec.pdf_ptr);
-		ray scattered = ray(hrec.p, p.generate(), r.time());
-		float pdf_val = p.value(scattered.direction());
+			return srec.attenuation * ray_color(srec.specular_ray, background, world, hlist, depth - 1);
+
+		ray scattered;
+		double pdf_val;
+		if (hlist->objects.empty())
+		{
+			scattered = ray(hrec.p, srec.pdf_ptr->generate(), r.time());
+			pdf_val = srec.pdf_ptr->value(scattered.direction());
+		}
+		else
+		{
+			mixture_pdf p(make_shared<hitable_pdf>(hlist, hrec.p), srec.pdf_ptr);
+			scattered = ray(hrec.p, p.generate(), r.time());
+			pdf_val = p.value(scattered.direction());
+		}
+
 		return emitted
 			+ srec.attenuation
 			* hrec.mat_ptr->scatter_pdf(r, hrec, scattered)
-			* ray_color(scattered, background, world, light_shape, depth - 1)
+			* ray_color(scattered, background, world, hlist, depth - 1)
 			/ pdf_val;
 	}
-
 	return emitted;
 }
 
@@ -351,11 +434,12 @@ void rendering()
 	auto time0 = 0.0, time1 = 1.0;
 
 	hitable_list objects;
+	shared_ptr<hitable_list> hlist = make_shared<hitable_list>();
 	color background(0, 0, 0);
-	switch (6)
+	switch (9)
 	{
 	case 1:
-		objects = random_scene();
+		random_scene(objects, hlist);
 		background = color(0.7, 0.8, 1.0);
 		lookfrom = point3(13, 2, 3);
 		lookat = point3(0, 0, 0);
@@ -363,28 +447,28 @@ void rendering()
 		aperture = 0.1;
 		break;
 	case 2:
-		objects = two_spheres();
+		two_spheres(objects, hlist);
 		background = color(0.7, 0.8, 1.0);
 		lookfrom = point3(13, 2, 3);
 		lookat = point3(0, 0, 0);
 		vfov = 20.0;
 		break;
 	case 3:
-		objects = two_perlin_spheres();
+		two_perlin_spheres(objects, hlist);
 		background = color(0.7, 0.8, 1.0);
 		lookfrom = point3(13, 2, 3);
 		lookat = point3(0, 0, 0);
 		vfov = 20.0;
 		break;
 	case 4:
-		objects = earth();
+		earth(objects, hlist);
 		background = color(0.7, 0.8, 1.0);
 		lookfrom = point3(13, 2, 3);
 		lookat = point3(0, 0, 0);
 		vfov = 20.0;
 		break;
 	case 5:
-		objects = simple_light();
+		simple_light(objects, hlist);
 		background = color(0, 0, 0);
 		samples_per_pixel = 400;
 		lookfrom = point3(26, 3, 6);
@@ -392,28 +476,52 @@ void rendering()
 		vfov = 20.0;
 		break;
 	case 6:
-		objects = cornell_box();
-		samples_per_pixel = 1000;
+		cornell_box(objects, hlist);
+		samples_per_pixel = 500;
 		background = color(0, 0, 0);
 		lookfrom = point3(278, 278, -800);
 		lookat = point3(278, 278, 0);
 		vfov = 40.0;
 		break;
 	case 7:
-		objects = cornell_smoke();
+		cornell_smoke(objects, hlist);
 		samples_per_pixel = 200;
 		lookfrom = point3(278, 278, -800);
 		lookat = point3(278, 278, 0);
 		vfov = 40.0;
 		break;
 	case 8:
-	default:
-		objects = final_scene();
+		final_scene(objects, hlist);
 		samples_per_pixel = 10000;
 		background = color(0, 0, 0);
 		lookfrom = point3(478, 278, -600);
 		lookat = point3(278, 278, 0);
 		vfov = 40.0;
+		break;
+	case 9:
+		cornell_box_spot(objects, hlist);
+		samples_per_pixel = 1000;
+		background = color(0, 0, 0);
+		lookfrom = point3(278, 278, -800);
+		lookat = point3(278, 278, 0);
+		vfov = 40.0;
+		break;
+	case 10:
+		cornell_box_light(objects, hlist);
+		samples_per_pixel = 1000;
+		background = color(0, 0, 0);
+		lookfrom = point3(278, 278, -800);
+		lookat = point3(278, 278, 0);
+		vfov = 40.0;
+		break;
+	case 11:
+	default:
+		universe(objects, hlist);
+		samples_per_pixel = 1000;
+		background = color(1.0, 1.0, 1.0);
+		lookfrom = point3(50, 50, 200);
+		lookat = point3(100, 0, 0);
+		vfov = 30.0;
 		break;
 	}
 
@@ -421,13 +529,8 @@ void rendering()
 
 	// World
 	hitable_list world(make_shared<bvh_node>(objects, time0, time1));
-	shared_ptr<hitable> light_shape = make_shared<xz_rect>(213, 343, 227, 332, 552, nullptr);
-	shared_ptr<hitable> glass_sphere = make_shared<sphere>(vec3(190, 90, 190), 90, nullptr);
-	shared_ptr<hitable_list> hlist = make_shared<hitable_list>();
-	hlist->add(light_shape);
-	hlist->add(glass_sphere);
-	// Render
 
+	// Render
 	// The main ray-tracing based rendering loop
 	// TODO: finish your own ray-tracing renderer according to the given tutorials
 #pragma omp parallel for schedule(dynamic) collapse(2)
